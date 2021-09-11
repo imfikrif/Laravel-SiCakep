@@ -1,60 +1,60 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .alert {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .bg-login {
-  background-image: linear-gradient(
-      to right,
-      rgba(26, 37, 66, 0.7),
-      rgba(218, 37, 37, 0.705)
-    ),
-    url("../img/background-kependudukan.jpg");
-  background-size: cover;
-  background-position: top;
+    background-image: linear-gradient(
+            to right,
+            rgba(26, 37, 66, 0.7),
+            rgba(199, 109, 24, 0.705)
+        ),
+        url("../img/background-kependudukan.jpg");
+    background-size: cover;
+    background-position: top;
 }
 
 .h-full {
-  height: 100vh;
-  overflow: hidden;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .no-border {
-  border: none;
-  width: 100%;
+    border: none;
+    width: 100%;
 }
 
 .login-input-text {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 input:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 .btn-login:focus {
-  outline: none !important;
+    outline: none !important;
 }
 
 .btn-login {
-  padding: 6px 12px;
-  background-color: #d40000;
-  border-radius: 4px;
-  border: 1px solid #f00202;
-  color: white;
-  font-size: 14px;
+    padding: 6px 12px;
+    background-color: #d40000;
+    border-radius: 4px;
+    border: 1px solid #f00202;
+    color: white;
+    font-size: 14px;
 }
 
 .btn-login:hover {
-  padding: 6px 12px;
-  background-color: #f01717;
-  border-radius: 4px;
-  border: 1px solid #ee0f0f;
-  color: white;
-  transition: 0.3s;
+    padding: 6px 12px;
+    background-color: #f01717;
+    border-radius: 4px;
+    border: 1px solid #ee0f0f;
+    color: white;
+    transition: 0.3s;
 }
