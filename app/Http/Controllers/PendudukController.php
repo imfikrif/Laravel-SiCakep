@@ -23,14 +23,21 @@ class PendudukController extends Controller
 
     public function create(Request $request)
     {
-        $nama       = $request->nama_event;
-        $keterangan = $request->keterangan;
-        $tanggal    = $request->tanggal;
-
         $create     = Penduduk::create([
-            'nama'          => $nama,
-            'keterangan'    => $keterangan,
-            'tanggal'       => $tanggal
+            'nik'           => $request->nik,
+            'nama'          => $request->nama,
+            'tempat_lahir'  => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'status_kawin'  => $request->status_kawin,
+            'alamat'        => $request->alamat,
+            'pekerjaan'     => $request->pekerjaan,
+            'pendidikan'    => $request->pendidikan,
+            'agama'         => $request->agama,
+            'lurah'         => $request->lurah,
+            'kecamatan'     => $request->kecamatan,
+            'kabupaten'     => $request->kabupaten,
+            'provinsi'      => $request->provinsi,
         ]);
 
         Alert::success('Berhasil', 'Event baru berhasil ditambahkan');

@@ -14,7 +14,7 @@
 
                     <!-- isian form -->
                     <div class="card-body">
-                        <form action="/pendudukcontroller/save_penduduk" method="post">
+                        <form action="{{ route('penduduk.create') }}" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
 
@@ -101,7 +101,7 @@
 
                                     <div class="form-group">
                                         <label for="productname"><strong>Lurah/Desa</strong></label>
-                                        <input class="form-control" type="text" name="luran" placeholder="Masukan lurah/desa" required>
+                                        <input class="form-control" type="text" name="lurah" placeholder="Masukan lurah/desa" required>
                                     </div>
 
                                     <div class="form-group">

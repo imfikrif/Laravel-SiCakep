@@ -125,29 +125,8 @@
             @yield('content')
         </div>
     </section>
-
-    <!-- modal import -->
-    <!-- <div class="modal fade" id="modal_logout" tabindex="-1" role="dialog" aria-labelledby="modal_import_data" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i aria-hidden="true" class="ki ki-close"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Apakah anda ingin logout?</p>
-                </div>
-
-                <div class="modal-footer">
-                    <a href="{{ route('logout') }}" class="btn btn-danger font-weight-bold btn-block">Ya</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
 </body>
+
 <script>
     $("#logout").on("click", function() {
         Swal.fire({
