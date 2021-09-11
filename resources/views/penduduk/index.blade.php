@@ -56,6 +56,7 @@
         </div>
     </div>
 </div>
+
 <script>
   $(function(){
       $('#table-penduduk').DataTable({

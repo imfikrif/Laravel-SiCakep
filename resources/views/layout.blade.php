@@ -106,7 +106,7 @@
                         <div class="profile_name">Fikri Firdaus</div>
                         <div class="job">Web Developer</div>
                     </div>
-                    <i class='bx bx-log-out' ></i>
+                    <i class='bx bx-log-out' id="logout"></i>
                 </div>
             </li>
         </ul>
@@ -126,9 +126,47 @@
         </div>
     </section>
 
-    <script src="{{ asset('/js/script.js') }}"></script>
+    <!-- modal import -->
+    <!-- <div class="modal fade" id="modal_logout" tabindex="-1" role="dialog" aria-labelledby="modal_import_data" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah anda ingin logout?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="{{ route('logout') }}" class="btn btn-danger font-weight-bold btn-block">Ya</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 </body>
+<script>
+    $("#logout").on("click", function() {
+        Swal.fire({
+            title: 'Logout',
+            text: "Apakah kamu ingin keluar dari aplikasi?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya',
+            cancelButtonText: `Tidak`,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/logout";
+            }
+        });
+    });
+</script>
+
+<script src="{{ asset('/js/script.js') }}"></script>
 @include('sweetalert::alert')
 </html>
-s
