@@ -22,7 +22,9 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 Route::get('/penduduk', 'PendudukController@index')->name('penduduk');
 Route::get('/penduduk/store-data', 'PendudukController@datatable')->name('penduduk.store-data');
 Route::get('/penduduk/tambah-data', 'PendudukController@tambah_data')->name('penduduk.tambah');
+Route::get('/penduduk/ubah-data/{id}', 'PendudukController@edit_data')->name('penduduk.ubah');
 Route::get('/penduduk/delete', 'PendudukController@delete')->name('penduduk.delete');
 Route::post('/penduduk/create', 'PendudukController@create')->name('penduduk.create');
+Route::post('/penduduk/update', 'PendudukController@update')->name('penduduk.update');
 
 Route::get('/logout', 'AuthController@logout')->name('logout');

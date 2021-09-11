@@ -116,5 +116,11 @@
       }
     });
   });
+
+  $(document).on("click", ".edit-data", function() {
+    var id   = $(this).data('id');
+    window.location.href = "/penduduk/ubah-data/" +id;
+  });
+
 </script>
 @endsection
