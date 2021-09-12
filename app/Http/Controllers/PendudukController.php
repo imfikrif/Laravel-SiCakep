@@ -13,12 +13,18 @@ class PendudukController extends Controller
 {
     public function index()
     {
-        return view('penduduk.index');
+        $breadcumb['main']  = "Penduduk";
+        $breadcumb['sub']   = "Penduduk";
+
+        return view('penduduk.index', $breadcumb);
     }
 
     public function tambah_data()
     {
-        return view('penduduk.create');
+        $breadcumb['main']  = "Penduduk";
+        $breadcumb['sub']   = "Tambah-data";
+
+        return view('penduduk.create', $breadcumb);
     }
 
     public function create(Request $request)
@@ -72,7 +78,10 @@ class PendudukController extends Controller
     {
         $cari_data  = Penduduk::where('id', '=', $id)->first();
 
-        return view('penduduk.edit')->with(['data' => $cari_data]);
+        $breadcumb['main']  = "Penduduk";
+        $breadcumb['sub']   = "Ubah-data";
+
+        return view('penduduk.edit', $breadcumb)->with(['data' => $cari_data]);
     }
 
     public function delete(Request $request)

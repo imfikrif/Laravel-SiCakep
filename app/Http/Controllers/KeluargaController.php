@@ -14,7 +14,10 @@ class KeluargaController extends Controller
 {
     public function index()
     {
-        return view('keluarga.index');
+        $breadcumb['main']  = "Keluarga";
+        $breadcumb['sub']   = "Keluarga";
+        
+        return view('keluarga.index', $breadcumb);
     }
     
     public function datatable()
@@ -41,8 +44,11 @@ class KeluargaController extends Controller
     public function tambah_data()
     {
         $nik    = Penduduk::select('nik', 'nama')->get();
+
+        $breadcumb['main']  = "Keluarga";
+        $breadcumb['sub']   = "Tambah-data";
         
-        return view('keluarga.create')->with(['nik' => $nik]);
+        return view('keluarga.create', $breadcumb)->with(['nik' => $nik]);
     }
 
     public function create(Request $request)
@@ -72,7 +78,10 @@ class KeluargaController extends Controller
     {
         $cari_data  = Keluarga::where('id', '=', $id)->first();
 
-        return view('keluarga.edit')->with(['data' => $cari_data]);
+        $breadcumb['main']  = "Keluarga";
+        $breadcumb['sub']   = "Ubah-data";
+
+        return view('keluarga.edit', $breadcumb)->with(['data' => $cari_data]);
     }
 
     public function delete(Request $request)

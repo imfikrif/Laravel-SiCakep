@@ -126,7 +126,8 @@
             <h5 class="d-inline align-middle">Suncode</h5>
         </div>
         <div class="bg-light py-2 px-3 shadow-sm">
-            <span class="mx-2">Penduduk</span>
+            <span class="mx-2">{{ $main }}</span>
+            <span class="text-muted" style="font-size: 13px">/ {{ $sub}}</span>
             <!-- <span class="text-muted" style="font-size: 14px;">penduduk</span> -->
         </div>
         <div class="container mt-4 px-4 overflow-scroll">

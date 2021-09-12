@@ -8,6 +8,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $breadcumb['main']  = "Dashboard";
+        $breadcumb['sub']   = "Dashboard";
+
+        return view('dashboard.index', $breadcumb);
     }
 }
