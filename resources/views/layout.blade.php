@@ -76,9 +76,9 @@
                     <li><a href="#">Penduduk Pindah</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="{{ request()->is('keluarga') || request()->is('keluarga/*') ? 'active' : '' }}">
                 <div class="iocn-link">
-                    <a href="#">
+                    <a href="{{ route('keluarga') }}">
                         <i class='bx bx-group'></i>
                         <span class="link_name">Keluarga</span>
                     </a>

@@ -27,4 +27,12 @@ Route::get('/penduduk/delete', 'PendudukController@delete')->name('penduduk.dele
 Route::post('/penduduk/create', 'PendudukController@create')->name('penduduk.create');
 Route::post('/penduduk/update', 'PendudukController@update')->name('penduduk.update');
 
+Route::get('/keluarga', 'KeluargaController@index')->name('keluarga');
+Route::get('/keluarga/store-data', 'KeluargaController@datatable')->name('keluarga.store-data');
+Route::get('/keluarga/tambah-data', 'KeluargaController@tambah_data')->name('keluarga.tambah');
+Route::get('/keluarga/ubah-data/{id}', 'KeluargaController@edit_data')->name('keluarga.ubah');
+Route::get('/keluarga/delete', 'KeluargaController@delete')->name('keluarga.delete');
+Route::post('/keluarga/create', 'KeluargaController@create')->name('keluarga.create');
+Route::post('/keluarga/update', 'KeluargaController@update')->name('keluarga.update');
+
 Route::get('/logout', 'AuthController@logout')->name('logout');
