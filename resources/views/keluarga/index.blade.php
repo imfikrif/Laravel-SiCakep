@@ -5,11 +5,11 @@
     <div class="d-flex justify-content-between mb-5">
       <h5>Keluarga</h5>
       <div>
-        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_import_data">
+        <button class="btn btn-import btn-sm" data-toggle="modal" data-target="#modal_import_data">
           <i class="fas fa-fw fa-file-import"></i>
           Import
         </button>
-        <a href="{{ route('keluarga.tambah') }}" class="btn btn-danger btn-sm">
+        <a href="{{ route('keluarga.tambah') }}" class="btn btn-primary btn-sm">
           <i class="fas fa-fw fa-plus"></i>
           Tambah Data
         </a>
@@ -44,13 +44,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>File Import</label>
-                        <input type="file" class="form-control" name="file" id="file_import_data" required onChange="validasiFile()">
+                        <input type="file" name="file" id="file_import_data" required onChange="validasiFile()">
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger font-weight-bold btn-block">Import</button>
+                    <button type="submit" class="btn btn-primary font-weight-bold btn-block">Import</button>
                 </div>
             </form>
         </div>
