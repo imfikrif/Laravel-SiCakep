@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
 use App\Models\Keluarga;
+use App\Models\Penduduk;
 
 Use Alert;
 
@@ -29,15 +30,19 @@ class KeluargaController extends Controller
                 <i class="fa fa-trash"></i>
             </button>';
             return $html;
-            }
-        )   
+        })
+        ->editColumn('created_at', function ($data) {
+            return date('d-m-Y', strtotime($data->created_at));
+        })
         ->rawColumns(['button'])
         ->make(true);
     }
 
     public function tambah_data()
     {
-        return view('keluarga.create');
+        $nik    = Penduduk::select('nik', 'nama')->get();
+        
+        return view('keluarga.create')->with(['nik' => $nik]);
     }
 
     public function create(Request $request)

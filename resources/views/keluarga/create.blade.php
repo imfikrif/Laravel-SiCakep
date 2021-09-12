@@ -33,7 +33,12 @@
 
                                     <div class="form-group">
                                         <strong>Kepala Keluarga</strong>
-                                        <input type="text" name="kepala_keluarga" class="form-control" placeholder="Masukan kepala keluarga" required>
+                                        <!-- <input type="text" name="kepala_keluarga" class="form-control" placeholder="Masukan kepala keluarga" required> -->
+                                        <select name="kepala_keluarga" class="form-control select-nik" style="padding:40px !important">
+                                            @foreach($nik as $item)
+                                            <option value="{{ $item->nik }}"> {{ $item->nik . "-" . $item->nama }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <!-- <label class="input-group-text" for="inputGroupFile02">Upload -->
                                 </div>
