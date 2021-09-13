@@ -3,25 +3,26 @@
 <div class="card border-0 shadow-sm">
   <div class="card-body">
     <div class="d-flex justify-content-between mb-5">
-      <h5>Keluarga</h5>
+      <h5>Penduduk Lahir</h5>
       <div>
         <button class="btn btn-import btn-sm" data-toggle="modal" data-target="#modal_import_data">
           <i class="fas fa-fw fa-file-import"></i>
           Import
         </button>
-        <a href="{{ route('keluarga.tambah') }}" class="btn btn-primary btn-sm">
+        <a href="{{ route('penduduk-lahir.tambah') }}" class="btn btn-primary btn-sm">
           <i class="fas fa-fw fa-plus"></i>
           Tambah Data
         </a>
       </div>
     </div>
 
-    <table class="table table-bordered" id="table-keluarga">
+    <table class="table table-bordered" id="table-penduduk-lahir">
       <thead>
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Bayu</th>
+          <th scope="col">Nama Bayi</th>
           <th scope="col">Tanggal Lahir</th>
+          <th scope="col">Jenis Kelamin</th>
           <th scope="col">Keluarga</th>
           <th scope="col">Action</th>
         </tr>
@@ -58,15 +59,16 @@
 
 <script>
   $(function(){
-      $('#table-keluarga').DataTable({
+      $('#table-penduduk-lahir').DataTable({
           processing: true,
           serverSide: true,
-          ajax: '{!! url("/keluarga/store-data") !!}',
+          ajax: '{!! url("/penduduk-lahir/store-data") !!}',
           columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            { data: 'nomor', name: 'nomor'},
-            { data: 'kepala_keluarga', name: 'kepala_keluarga'},
-            { data: 'created_at', name: 'created_at'},
+            { data: 'nama', name: 'nama'},
+            { data: 'tanggal_lahir', name: 'tanggal_lahir'},
+            { data: 'jenis_kelamin', name: 'jenis_kelamin'},
+            { data: 'no_kk', name: 'no_kk'},
             { data: 'button', name: 'button'},
           ],
           columnDefs: [
@@ -76,7 +78,7 @@
               "width": "4%"
             },
             {
-              "targets": 4,
+              "targets": 5,
               "className": "text-center",
               "width": "4%"
             }
@@ -99,14 +101,14 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: '{!! url("/keluarga/delete") !!}',
+          url: '{!! url("/penduduk-lahir/delete") !!}',
           data: {
             id  : id,
           },
           method: "GET",
           success: function(response) {
             Swal.fire('Berhasil!', '', 'success');
-            $('#table-keluarga').DataTable().ajax.reload();
+            $('#table-penduduk-lahir').DataTable().ajax.reload();
           },
           error: function(response) {
             Swal.fire("Gagal", "Data gagal dihapus", "error");
@@ -118,7 +120,7 @@
 
   $(document).on("click", ".edit-data", function() {
     var id   = $(this).data('id');
-    window.location.href = "/keluarga/ubah-data/" +id;
+    window.location.href = "/penduduk-lahir/ubah-data/" +id;
   });
 
 </script>

@@ -14,7 +14,7 @@
 
                     <!-- isian form -->
                     <div class="card-body">
-                        <form action="{{ route('keluarga.create') }}" method="post">
+                        <form action="{{ route('penduduk-lahir.create') }}" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
 
@@ -22,8 +22,13 @@
                                 <div class="col-md-6 px-2">
 
                                     <div class="form-group">
-                                        <strong>Nomor</strong>
-                                        <input type="text" name="nomor" class="form-control" value="{{ $data->nomor}}" placeholder="Masukan nomor keluarga" required>
+                                        <strong>Nama</strong>
+                                        <input type="text" name="nama" class="form-control" placeholder="Masukan nama bayi" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <strong>Tanggal Lahir</strong>
+                                        <input type="date" name="tanggal_lahir" class="form-control" placeholder="Pilih tanggal lahir" required>
                                     </div>
 
                                 </div>
@@ -32,13 +37,26 @@
                                 <div class="col-md-6 px-2">
 
                                     <div class="form-group">
-                                        <strong>Kepala Keluarga</strong>
-                                        <input type="text" name="kepala_keluarga" class="form-control" value="{{ $data->kepala_keluarga}}" placeholder="Masukan kepala keluarga" required>
+                                        <strong>Jenis Kelamin</strong>
+                                        <select name="jenis_kelamin" class="form-control">
+                                            <option value="Laki-laki">Laki-laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <strong>Keluarga</strong>
+                                        <!-- <input type="text" name="kepala_keluarga" class="form-control" placeholder="Masukan kepala keluarga" required> -->
+                                        <select name="keluarga" class="form-control select-nik" style="padding:40px !important">
+                                            @foreach($nik as $item)
+                                            <option value="{{ $item->nomor }}"> {{ $item->nomor . "-" . $item->kepala_keluarga }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <!-- <label class="input-group-text" for="inputGroupFile02">Upload -->
                                 </div>
 
-                                <button class="btn btn-primary btn-block m-2" type="submit">Ubah</button>
+                                <button class="btn btn-primary btn-block m-2" type="submit">Tambah</button>
                             </div>
                         </form>
                     </div>

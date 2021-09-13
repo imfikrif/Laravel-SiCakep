@@ -12,6 +12,6 @@ class PendudukLahir extends Model
         'nama',
         'tanggal_lahir',
         'jenis_kelamin',
-        'keluarga',
+        'no_kk',
     ];
 }

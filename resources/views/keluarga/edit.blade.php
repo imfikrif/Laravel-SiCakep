@@ -14,7 +14,7 @@
 
                     <!-- isian form -->
                     <div class="card-body">
-                        <form action="{{ route('keluarga.create') }}" method="post">
+                        <form action="{{ route('keluarga.update') }}" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
 

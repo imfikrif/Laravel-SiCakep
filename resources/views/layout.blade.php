@@ -64,7 +64,7 @@
                     </a>
                 </div>
             </li>
-            <li class="">
+            <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') ? 'active showMenu' : '' }}">
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bxs-contact'></i>
@@ -76,10 +76,12 @@
                     <li class="">
                         <a href="#">Penduduk Meninggal</a>
                     </li>
-                    <li>
-                        <a href="#">Penduduk Lahir</a>
+                    <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') ? 'active' : '' }}">
+                        <a href="{{ route('penduduk-lahir') }}">Penduduk Lahir</a>
                     </li>
-                    <li><a href="#">Penduduk Pindah</a></li>
+                    <li>
+                        <a href="#">Penduduk Pindah</a>
+                    </li>
                 </ul>
             </li>
             <li class="{{ request()->is('keluarga') || request()->is('keluarga/*') ? 'active' : '' }}">
@@ -158,6 +160,10 @@
 <script>
     $(document).ready(function() {
         $('.select-nik').select2({
+            theme: 'bootstrap4',
+        });
+        
+        $('.select-input').select2({
             theme: 'bootstrap4',
         });
     });
