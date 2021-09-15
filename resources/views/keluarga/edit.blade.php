@@ -17,7 +17,7 @@
                         <form action="{{ route('keluarga.update') }}" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
-
+                                <input type="hidden" name="id" value="{{ $data->id }}">
                                 <!-- kolom kiri -->
                                 <div class="col-md-6 px-2">
 

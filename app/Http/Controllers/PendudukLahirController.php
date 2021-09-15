@@ -78,11 +78,12 @@ class PendudukLahirController extends Controller
     public function edit_data($id)
     {
         $cari_data  = PendudukLahir::where('id', '=', $id)->first();
+        $nik    = Keluarga::select('nomor', 'kepala_keluarga')->get();
 
         $breadcumb['main']  = "Penduduk Lahir";
         $breadcumb['sub']   = "Ubah-data";
 
-        return view('penduduk-lahir.edit', $breadcumb)->with(['data' => $cari_data]);
+        return view('penduduk-lahir.edit', $breadcumb)->with(['data' => $cari_data, 'nik' => $nik]);
     }
 
     public function delete(Request $request)
