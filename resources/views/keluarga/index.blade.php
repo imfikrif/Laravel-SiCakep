@@ -34,7 +34,7 @@
 <div class="modal fade" id="modal_import_data" tabindex="-1" role="dialog" aria-labelledby="modal_import_data" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form method="POST" enctype="multipart/form-data" action="">
+            <form method="POST" enctype="multipart/form-data" action="{{ route('keluarga.import') }}">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>

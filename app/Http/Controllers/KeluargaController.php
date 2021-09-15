@@ -8,7 +8,10 @@ use Yajra\Datatables\Datatables;
 use App\Models\Keluarga;
 use App\Models\Penduduk;
 
+use App\imports\KeluargaImport;
+
 Use Alert;
+use Excel;
 
 class KeluargaController extends Controller
 {
@@ -88,5 +91,13 @@ class KeluargaController extends Controller
     {
         $id     = $request->id;
         $data   = Keluarga::where('id', '=', $id)->delete();
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new KeluargaImport, $request->file);
+        
+        Alert::success('Berhasil', 'Data keluarga berhasil diimport');
+        return redirect('keluarga');
     }
 }

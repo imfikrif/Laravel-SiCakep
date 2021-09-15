@@ -34,6 +34,7 @@ Route::get('/keluarga/ubah-data/{id}', 'KeluargaController@edit_data')->name('ke
 Route::get('/keluarga/delete', 'KeluargaController@delete')->name('keluarga.delete');
 Route::post('/keluarga/create', 'KeluargaController@create')->name('keluarga.create');
 Route::post('/keluarga/update', 'KeluargaController@update')->name('keluarga.update');
+Route::post('/keluarga/import', 'KeluargaController@import')->name('keluarga.import');
 
 //Mutasi Penduduk lahir
 Route::get('/penduduk-lahir', 'PendudukLahirController@index')->name('penduduk-lahir');
