@@ -14,49 +14,42 @@
 
                     <!-- isian form -->
                     <div class="card-body">
-                        <form action="{{ route('penduduk-lahir.update') }}" method="post">
+                        <form action="{{ route('penduduk-meninggal.update') }}" method="post">
                             <?= csrf_field(); ?>
                             <div class="form-row">
 
                                 <!-- kolom kiri -->
                                 <div class="col-md-6 px-2">
                                     <input type="hidden" value="{{ $data->id }}" name="id">
+                                    <input type="hidden" value="{{ $data->nik }}" name="nik">
+
                                     <div class="form-group">
                                         <strong>Nama</strong>
-                                        <input type="text" name="nama" value="{{ $data->nama }}" class="form-control" placeholder="Masukan nama bayi" required>
+                                        <input type="text" name="nama" value="{{ $data->nama }}" class="form-control" placeholder="Masukan nama bayi" readonly>
                                     </div>
 
                                     <div class="form-group">
-                                        <strong>Tanggal Lahir</strong>
-                                        <input type="date" name="tanggal_lahir" value="{{ $data->tanggal_lahir }}" class="form-control" placeholder="Pilih tanggal lahir" required>
+                                        <strong>Penyebab</strong>
+                                        <input type="text" name="penyebab" value="{{ $data->penyebab }}" class="form-control" placeholder="Masukan nama bayi" required>
                                     </div>
-
                                 </div>
 
                                 <!-- kolom kanan -->
                                 <div class="col-md-6 px-2">
 
                                     <div class="form-group">
-                                        <strong>Jenis Kelamin</strong>
-                                        <select name="jenis_kelamin" value="{{ $data->jenis_kelamin }}" class="form-control">
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        </select>
+                                        <strong>Tanggal Wafat</strong>
+                                        <input type="date" name="tanggal_wafat" value="{{ $data->tanggal_wafat }}" class="form-control" placeholder="Pilih tanggal lahir" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <strong>Keluarga</strong>
-                                        <!-- <input type="text" name="kepala_keluarga" class="form-control" placeholder="Masukan kepala keluarga" required> -->
-                                        <select name="keluarga" class="form-control select-nik" value="{{ $data->no_kk }}" style="padding:40px !important">
-                                            @foreach($nik as $item)
-                                            <option value="{{ $item->nomor }}"> {{ $item->nomor . "-" . $item->kepala_keluarga }}</option>
-                                            @endforeach
-                                        </select>
+                                        <strong>Pelapor</strong>
+                                        <input type="text" name="pelapor" value="{{ $data->pelapor }}" class="form-control" placeholder="Masukan kepala keluarga" required>
                                     </div>
                                     <!-- <label class="input-group-text" for="inputGroupFile02">Upload -->
                                 </div>
 
-                                <button class="btn btn-primary btn-block m-2" type="submit">Tambah</button>
+                                <button class="btn btn-primary btn-block m-2" type="submit">Selesai</button>
                             </div>
                         </form>
                     </div>

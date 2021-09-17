@@ -22,7 +22,7 @@ class PendudukMeninggalController extends Controller
     
     public function datatable()
     {
-        $data   = PendudukMeninggal::select('penduduk.nik as nik', 'penduduk.nama as nama', 'penduduk_meninggal.tanggal_wafat as tanggal_wafat', 'penduduk_meninggal.pelapor as pelapor', 'penduduk_meninggal.penyebab as penyebab')
+        $data   = PendudukMeninggal::select('penduduk_meninggal.id as id', 'penduduk.nik as nik', 'penduduk.nama as nama', 'penduduk_meninggal.tanggal_wafat as tanggal_wafat', 'penduduk_meninggal.pelapor as pelapor', 'penduduk_meninggal.penyebab as penyebab')
         ->join('penduduk', 'penduduk.nik', 'penduduk_meninggal.nik')
         ->get();
         
@@ -80,17 +80,15 @@ class PendudukMeninggalController extends Controller
 
     public function edit_data($id)
     {
-        $car_data   = PendudukMeninggal::select('penduduk.nik as nik', 'penduduk.nama as nama', 'penduduk_meninggal.tanggal_wafat as tanggal_wafat', 'penduduk_meninggal.pelapor as pelapor', 'penduduk_meninggal.penyebab as penyebab')
+        $cari_data   = PendudukMeninggal::select('penduduk_meninggal.id as id', 'penduduk.nik as nik', 'penduduk.nama as nama', 'penduduk_meninggal.tanggal_wafat as tanggal_wafat', 'penduduk_meninggal.pelapor as pelapor', 'penduduk_meninggal.penyebab as penyebab')
         ->join('penduduk', 'penduduk.nik', 'penduduk_meninggal.nik')
-        ->where('id', '=', $id)
+        ->where('penduduk_meninggal.id', '=', $id)
         ->first();
-
-        // $nik        = Keluarga::select('nomor', 'kepala_keluarga')->get();
-
+        
         $breadcumb['main']  = "Penduduk Meninggal";
         $breadcumb['sub']   = "Ubah-data";
 
-        return view('penduduk-meninggal.edit', $breadcumb)->with(['data' => $cari_data, 'nik' => $nik]);
+        return view('penduduk-meninggal.edit', $breadcumb)->with(['data' => $cari_data]);
     }
 
     public function delete(Request $request)
