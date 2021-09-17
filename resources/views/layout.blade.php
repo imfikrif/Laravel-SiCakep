@@ -64,7 +64,7 @@
                     </a>
                 </div>
             </li>
-            <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') ? 'active showMenu' : '' }}">
+            <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') || request()->is('penduduk-meninggal') || request()->is('penduduk-meninggal/*') ? 'active showMenu' : '' }}">
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bxs-contact'></i>
@@ -73,8 +73,8 @@
                     <i class='bx bxs-chevron-down arrow' ></i>
                 </div>
                 <ul class="sub-menu">
-                    <li class="">
-                        <a href="#">Penduduk Meninggal</a>
+                    <li class="{{ request()->is('penduduk-meninggal') || request()->is('penduduk-meninggal/*') ? 'active' : '' }}">
+                        <a href="{{ route('penduduk-meninggal') }}">Penduduk Meninggal</a>
                     </li>
                     <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') ? 'active' : '' }}">
                         <a href="{{ route('penduduk-lahir') }}">Penduduk Lahir</a>

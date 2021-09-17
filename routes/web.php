@@ -45,4 +45,13 @@ Route::get('/penduduk-lahir/delete', 'PendudukLahirController@delete')->name('pe
 Route::post('/penduduk-lahir/create', 'PendudukLahirController@create')->name('penduduk-lahir.create');
 Route::post('/penduduk-lahir/update', 'PendudukLahirController@update')->name('penduduk-lahir.update');
 
+//Mutasi Penduduk meninggal
+Route::get('/penduduk-meninggal', 'PendudukMeninggalController@index')->name('penduduk-meninggal');
+Route::get('/penduduk-meninggal/store-data', 'PendudukMeninggalController@datatable')->name('penduduk-meninggal.store-data');
+Route::get('/penduduk-meninggal/tambah-data', 'PendudukMeninggalController@tambah_data')->name('penduduk-meninggal.tambah');
+Route::get('/penduduk-meninggal/ubah-data/{id}', 'PendudukMeninggalController@edit_data')->name('penduduk-meninggal.ubah');
+Route::get('/penduduk-meninggal/delete', 'PendudukMeninggalController@delete')->name('penduduk-meninggal.delete');
+Route::post('/penduduk-meninggal/create', 'PendudukMeninggalController@create')->name('penduduk-meninggal.create');
+Route::post('/penduduk-meninggal/update', 'PendudukMeninggalController@update')->name('penduduk-meninggal.update');
+
 Route::get('/logout', 'AuthController@logout')->name('logout');

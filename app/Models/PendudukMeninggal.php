@@ -11,7 +11,7 @@ class PendudukMeninggal extends Model
     protected $fillable = [
         'nik',
         'tanggal_wafat',
-        'penybab',
+        'penyebab',
         'pelapor',
     ];
 }
