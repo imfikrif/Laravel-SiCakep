@@ -54,4 +54,13 @@ Route::get('/penduduk-meninggal/delete', 'PendudukMeninggalController@delete')->
 Route::post('/penduduk-meninggal/create', 'PendudukMeninggalController@create')->name('penduduk-meninggal.create');
 Route::post('/penduduk-meninggal/update', 'PendudukMeninggalController@update')->name('penduduk-meninggal.update');
 
+//Mutasi Penduduk pindah
+Route::get('/penduduk-pindah', 'PendudukPindahController@index')->name('penduduk-pindah');
+Route::get('/penduduk-pindah/store-data', 'PendudukPindahController@datatable')->name('penduduk-pindah.store-data');
+Route::get('/penduduk-pindah/tambah-data', 'PendudukPindahController@tambah_data')->name('penduduk-pindah.tambah');
+Route::get('/penduduk-pindah/ubah-data/{id}', 'PendudukPindahController@edit_data')->name('penduduk-pindah.ubah');
+Route::get('/penduduk-pindah/delete', 'PendudukPindahController@delete')->name('penduduk-pindah.delete');
+Route::post('/penduduk-pindah/create', 'PendudukPindahController@create')->name('penduduk-pindah.create');
+Route::post('/penduduk-pindah/update', 'PendudukPindahController@update')->name('penduduk-pindah.update');
+
 Route::get('/logout', 'AuthController@logout')->name('logout');

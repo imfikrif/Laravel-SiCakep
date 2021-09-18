@@ -3,26 +3,27 @@
 <div class="card border-0 shadow-sm">
   <div class="card-body">
     <div class="d-flex justify-content-between mb-5">
-      <h5>Keluarga</h5>
+      <h5>Penduduk Pindah</h5>
       <div>
         <button class="btn btn-import btn-sm" data-toggle="modal" data-target="#modal_import_data">
           <i class="fas fa-fw fa-file-import"></i>
           Import
         </button>
-        <a href="{{ route('keluarga.tambah') }}" class="btn btn-primary btn-sm">
+        <a href="{{ route('penduduk-pindah.tambah') }}" class="btn btn-primary btn-sm">
           <i class="fas fa-fw fa-plus"></i>
           Tambah Data
         </a>
       </div>
     </div>
 
-    <table class="table table-bordered table-responsive-sm" id="table-keluarga">
+    <table class="table table-bordered table-responsive-xl" id="table-penduduk-pindah">
       <thead>
         <tr class="text-center">
           <th scope="col">No</th>
-          <th scope="col">No KK</th>
-          <th scope="col">Kepala Keluarga</th>
-          <th scope="col">Tanggal Terdaftar</th>
+          <th scope="col">NIK</th>
+          <th scope="col">Nama </th>
+          <th scope="col">Tanggal Pindah</th>
+          <th scope="col">Penyebab</th>
           <th scope="col">Action</th>
         </tr>
       </thead>  
@@ -34,7 +35,7 @@
 <div class="modal fade" id="modal_import_data" tabindex="-1" role="dialog" aria-labelledby="modal_import_data" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form method="POST" enctype="multipart/form-data" action="{{ route('keluarga.import') }}">
+            <form method="POST" enctype="multipart/form-data" action="">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
@@ -58,15 +59,16 @@
 
 <script>
   $(function(){
-      $('#table-keluarga').DataTable({
+      $('#table-penduduk-pindah').DataTable({
           processing: true,
           serverSide: true,
-          ajax: '{!! url("/keluarga/store-data") !!}',
+          ajax: '{!! url("/penduduk-pindah/store-data") !!}',
           columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            { data: 'nomor', name: 'nomor'},
-            { data: 'kepala_keluarga', name: 'kepala_keluarga'},
-            { data: 'created_at', name: 'created_at'},
+            { data: 'nik', name: 'nik'},
+            { data: 'nama', name: 'nama'},
+            { data: 'tanggal_pindah', name: 'tanggal_pindah'},
+            { data: 'alasan_pindah', name: 'alasan_pindah'},
             { data: 'button', name: 'button'},
           ],
           columnDefs: [
@@ -75,7 +77,7 @@
               "className": "text-center",
             },
             {
-              "targets": 4,
+              "targets": 5,
               "className": "text-center",
             }
           ],
@@ -97,14 +99,14 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: '{!! url("/keluarga/delete") !!}',
+          url: '{!! url("/penduduk-pindah/delete") !!}',
           data: {
             id  : id,
           },
           method: "GET",
           success: function(response) {
             Swal.fire('Berhasil!', '', 'success');
-            $('#table-keluarga').DataTable().ajax.reload();
+            $('#table-penduduk-pindah').DataTable().ajax.reload();
           },
           error: function(response) {
             Swal.fire("Gagal", "Data gagal dihapus", "error");
@@ -116,7 +118,7 @@
 
   $(document).on("click", ".edit-data", function() {
     var id   = $(this).data('id');
-    window.location.href = "/keluarga/ubah-data/" +id;
+    window.location.href = "/penduduk-pindah/ubah-data/" +id;
   });
 
 </script>

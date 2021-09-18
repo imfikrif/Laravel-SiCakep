@@ -18,7 +18,7 @@
 
     <table class="table table-bordered" id="table-penduduk-meninggal">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th scope="col">No</th>
           <th scope="col">NIK</th>
           <th scope="col">Nama</th>
@@ -77,12 +77,10 @@
             {
               "targets": 0, // your case first column
               "className": "text-center",
-              "width": "4%"
             },
             {
               "targets": 6,
               "className": "text-center",
-              "width": "4%"
             }
           ],
       });

@@ -64,7 +64,7 @@
                     </a>
                 </div>
             </li>
-            <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') || request()->is('penduduk-meninggal') || request()->is('penduduk-meninggal/*') ? 'active showMenu' : '' }}">
+            <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') || request()->is('penduduk-meninggal') || request()->is('penduduk-meninggal/*') || request()->is('penduduk-pindah') || request()->is('penduduk-pindah/*') ? 'active showMenu' : '' }}">
                 <div class="iocn-link">
                     <a href="#">
                         <i class='bx bxs-contact'></i>
@@ -79,8 +79,8 @@
                     <li class="{{ request()->is('penduduk-lahir') || request()->is('penduduk-lahir/*') ? 'active' : '' }}">
                         <a href="{{ route('penduduk-lahir') }}">Penduduk Lahir</a>
                     </li>
-                    <li>
-                        <a href="#">Penduduk Pindah</a>
+                    <li class="{{ request()->is('penduduk-pindah') || request()->is('penduduk-pindah/*') ? 'active' : '' }}">
+                        <a href="{{ route('penduduk-pindah') }}">Penduduk Pindah</a>
                     </li>
                 </ul>
             </li>
